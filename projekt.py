@@ -41,7 +41,6 @@ def potegowanie():
     menu()
 
 def kalendarz():
-    import calendar
     yy = int(input("Podaj rok"))
     mm = int(input("Podaj miesiac"))
     print('  Python Calendar\n ')
