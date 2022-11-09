@@ -1,56 +1,63 @@
+#import section
+import calendar
+import random
+from array import*
+import os
+import string
+
+#1
 def dodawanie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
     print("Wynik dodawania, to ",liczba1 + liczba2)
     menu()
-
+#2
 def odejmowanie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
     print("Wynik odejmowania, to ",liczba1 - liczba2)
     menu()
-
+#3
 def mnozenie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
     print("Wynik mnożenia, to ",liczba1 * liczba2)
     menu()
-
+#4
 def dzielenie_całkowite_bez_reszty():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
     print("Wynik dzielenia, to ",liczba1 / liczba2)
     menu()
-
+#5
 def modulo_reszta_z_dzielenia():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
     print("Reszta z dzielenia, to ",liczba1 % liczba2)
     menu()
-
+#6
 def dzielenie_z_reszta():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
     print("Wynik dzielenia, to ",liczba1 / liczba2, "z resztą, równą: ",liczba1 % liczba2)
     menu()
-
+#7
 def potegowanie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj potęgę.\n"))
     print("Wynik potęgowania twojej liczby, to ",liczba1 ^ liczba2)
     menu()
-
+#8
 def kalendarz():
     yy = int(input("Podaj rok"))
     mm = int(input("Podaj miesiac"))
     print('  Python Calendar\n ')
     print(calendar.month(yy,mm))
     menu()
- 
+ #9
 def zgadnij_liczbe():
     print("Podaj liczbe")
     liczba = int(input())
-    import random
     liczba_losowa = int(random.randint(1, 10))
     while not(liczba == liczba_losowa):
         if(liczba < liczba_losowa):
@@ -64,17 +71,16 @@ def zgadnij_liczbe():
     print("Wpisałeś dobrą liczbę")
     print("Kończę program")
     menu()
-
-def quiz_matematyczny():
-    print("Witam w quizie")
+#10
+def quiz_matematyczny_dodawanie():
+    print("Witam w quizie, dodawanie")
     wynik = 0
-    import random
     i=0
     while(i<5):
         print("Odpowiedz na moje pytanie:")
-        liczba1 = int(random.randint(1, 10))
-        liczba2 = int(random.randint(1, 10))
-        print(liczba1 ," + ",liczba2," = ?")
+        liczba1 = int(random.randint(1, 100))
+        liczba2 = int(random.randint(1, 100))
+        print("Ile rowna sie: ",liczba1 ," + ",liczba2," = ?\n")
         liczba = int(input())
         i += 1
         if (liczba == liczba1 + liczba2):
@@ -82,9 +88,43 @@ def quiz_matematyczny():
             print("Brawo!")
     print("Twój wynik, to: ",wynik)
     menu()
-
+#11
+def quiz_matematyczny_odejmowanie():
+    print("Witam w quizie odejmowanie")
+    wynik = 0
+    i=0
+    while(i<5):
+        print("Odpowiedz na moje pytanie:")
+        liczba1 = int(random.randint(1, 100))
+        liczba2 = int(random.randint(1, 100))
+        print("Ile rowna sie: ",liczba1 ," - ",liczba2," = ?\n")
+        liczba = int(input())
+        i += 1
+        if (liczba == liczba1 - liczba2):
+            wynik += 1
+            print("Brawo!")
+    print("Twój wynik, to: ",wynik)
+    menu()
+#12
+def quiz_matematyczny_mnozenie():
+    print("Witam w quizie mnozenie")
+    wynik = 0
+    i=0
+    while(i<5):
+        print("Odpowiedz na moje pytanie:")
+        liczba1 = int(random.randint(1, 100))
+        liczba2 = int(random.randint(1, 100))
+        print("Ile rowna sie: ",liczba1 ," * ",liczba2," = ?\n")
+        liczba = int(input())
+        i += 1
+        if (liczba == liczba1 * liczba2):
+            wynik += 1
+            print("Brawo!")
+    print("Twój wynik, to: ",wynik)
+    menu()
+#13
 def zgadnij_kolor():
-    import random
+    
     print("My colors: red, blue, cyan, pink, green")
     print("Please pick one from these color, we will see if you'll get the same choice as me!")
     color = random.choice(["red", "blue", "cyan", "pink", "green"])
@@ -109,7 +149,7 @@ def zgadnij_kolor():
     if(choose == color):
         print("Well done!")
     menu()
-
+#14
 def tuple_indexy():
     kraje = ("Polska", "Francja", "Niemcy", "Argentyna", "Hiszpaia")
     print(kraje)
@@ -122,27 +162,7 @@ def tuple_indexy():
     wybor = int(input())
     print(kraje[wybor])
     menu()
-
-"""
-#71
-
-sporty = ['koszykówka', 'rower']
-print(sporty)
-print("Podaj mi swój ulubiony sport, którego nie ma na liście.")
-sporty += (input(),)
-print('Uaktualniona wysortowana, lista, to: ')
-sporty.sort()
-print(sporty)
-
-#72
-przedmioty = ["fizyka", "matematyka", "wf", "plastyka", "informatyka", "polski"]
-print(przedmioty)
-print("Którego przedmiotu nie lubisz?")
-przedmioty.remove(input())
-print("Twój nowy plan lekcji:), to: ")
-print(przedmioty)
-
-"""
+#15
 def lista_zaproszonych():
     zaproszeni = []
     print("Wpisz 3 osoby, po enterze, kóre chcesz zaprosić na swoją imprezę?")
@@ -156,7 +176,7 @@ def lista_zaproszonych():
         wybor = input()
     print("Zaprosiłeś ",len(zaproszeni)," osób!")
     menu()
-
+#16
 def wyraz_w_pionie():
     word = input("Wprowadź słowo: ")
     length = len(word)
@@ -167,131 +187,7 @@ def wyraz_w_pionie():
         print(letter)
         num = num + 1
     menu()
-
-"""
-from array import *
-
-numery = array ('i',[11, 22, 33, 44, 55])
-print(numery)
-print("Wybierz numer, a ja podam ci jego indeks.")
-wybor = int(input("Wpisz liczbę: "))
-while(wybor not in numery):
-    print("Tej liczby nie mam w moim arrayu, wpisz prawidłową liczbę!")
-    wybor = int(input("Wpisz liczbę kolejną liczbę: "))
-
-print(numery.index(wybor))
-
-#95
-from array import *
-numery = array("d", [55.55, 66.66, 77.77, 88.88, 99.99])
-print(numery)
-while(input("Podaj liczbę od 2 do 5") < 2 or input("Podaj liczbę od 2 do 5") > 5):
-    print("test")
-    nie jest skonczone :(
-
-#Zadania na plikach
-file = open("Countries.txt", "w")
-file.write("Italy\n")
-file.write("Germany\n")
-file.write("Spain\n")
-file.close
-
-file = open("Countries.txt", "r")
-print(file.read())
-
-file = open("Countries.txt", "a")
-file.write("France\n")
-file.close
-
-#106
-
-file = open("Names.txt", "w")
-file.write("Andrzej\n")
-file.write("Mariusz\n")
-file.write("Patryk\n")
-file.write("Magda\n")
-file.write("Karolina\n")
-file.close
-
-
-#107
-file = open("Names.txt", "r")
-print(file.read())
-
-#108
-file = open("Names.txt", "a")
-print("Wpisz jakies imie, a ja je dopisze do pliku!")
-file.write(input())
-file.write("\n")
-file.close()
-file = open("Names.txt", "r")
-print(file.read())
-file.close()
-
-#105
-file = open("Numbers.txt", "w")
-file.write("1,")
-file.write("2,")
-file.write("3,")
-file.write("4,")
-file.write("5")
-file.close()
-
-
-#CSV
-file = open("Stars.csv", "w")
-newRecord = "Brian,73,taurus\n"
-file.write(str(newRecord))
-file.close()
-
-#CSV1
-file = open("Stars.csv", "a")
-name = input("Enter name: ")
-age = input("Enter age: ")
-star = input("Enter star sign: ")
-newRecord = name + "," + age + "," + star + "\n"
-file.write(str(newRecord))
-file.close()
-
-
-#111
-file = open("Books.csv", "w")
-newRecord = "To kill,Harper,1960\n"
-newRecord1 = "A brief,Stephen,1988\n"
-newRecord2 = "The great Gatsby,F.Scott,1922\n"
-file.write(str(newRecord))
-file.write(str(newRecord1))
-file.write(str(newRecord2))
-file.close()
-
-
-#112
-file = open("Books.csv", "a")
-name = input("Enter book: ")
-author = input("Enter Author: ")
-year = input("Enter Year Released: ")
-newRecord = name + "," + author + "," + year + "\n"
-file.write(str(newRecord))
-file.close()
-
-
-#113
-i = int(input("Ile chcesz dodać rekorkdów?"))
-while (i > 0):
-    file = open("Books.csv", "a")
-    name = input("Enter book: ")
-    author = input("Enter Author: ")
-    year = input("Enter Year Released: ")
-    newRecord = name + "," + author + "," + year + "\n"
-    file.write(str(newRecord))
-    file.close()
-    i = i - 1
-
-
-
-wybor_funckji()
-
-"""
+#17
 def znajdz_najwieksza_liczbe():
     num1 = float(input("Wprowadz pierwszy numer: "))
     num2 = float(input("Wprowadz drugi numer: "))
@@ -306,8 +202,7 @@ def znajdz_najwieksza_liczbe():
     print("Największą liczbą jest: ", wynik)
 
     menu()
-
-
+#18
 def tabliczka_mnozenia_wybranej_liczby():
     num = int(input("Podaj liczbe, a ja wyswietle tabliczke mnozenia "))
     i = int(1)
@@ -315,7 +210,7 @@ def tabliczka_mnozenia_wybranej_liczby():
         print(num, 'x', i, '=', num*i)
         i+=1
     menu()
-
+#19
 def liczba_na_rozne_systemy_liczbowe():
 
     liczba = input("Wpisz liczbę.")
@@ -326,14 +221,112 @@ def liczba_na_rozne_systemy_liczbowe():
     print(hex(liczba), "w systemie szesnastkowym.")
 
     menu()
+#20
+def tworzenie_pliku_tekstowego():
+    nazwa = input("Podaj nazwę pliku ('rozszerzenie txt')\n") + ".txt"
+    file = open(nazwa, "w")
+    file.close()
+    print("plik ",nazwa," zostal utworzony")
+    menu()
+#21
+def otworzenie_pliku_tekstowego():
+    nazwa = input("Podaj nazwę pliku ('rozszerzenie txt')\n") + ".txt"
+    if os.path.exists(nazwa):
+        file = open(nazwa, "r")
+        print(file.read())
+        file.close()
+    else:
+        print("plik ",nazwa," nie istnieje")
+    menu()
+#22
+def dopisywanie_do_pliku_tekstowego():
+    nazwa = input("Podaj nazwę pliku ('rozszerzenie txt')\n") + ".txt"
+    if os.path.exists(nazwa):
+        file = open(nazwa, "a")
+        wartosc = input("Wpisz to co chcesz dopisać do pliku\n")
+        file.write(wartosc)
+        file.close()
+    else:
+        print("plik ",nazwa," nie istnieje")
+    menu()
+#23
+def usuwanie_pliku_tekstowego():
+    nazwa = input("Podaj nazwę pliku ('rozszerzenie txt')\n") + ".txt"
+    if os.path.exists(nazwa):
+        os.remove(nazwa)
+    else:
+        print("plik ",nazwa," nie istnieje")
+    menu()
+#24
+def pokaz_kod_ascii():
+    znak = input("Podaj wybrany znak\n")
+    print("Kod ASCII znaku ",znak," , to:\n")
+    print(ord(znak))
+    menu()
+#25 
+def zamien_dni():
+    dni = int(input("Wprowadz liczbe dni\n"))
+    rok = dni/365
+    godziny = dni*24
+    minuty = godziny*60
+    sekundy = minuty*60
+    print(dni," dni, to",rok," normalnego roku, ",godziny," godzin, ", minuty," minut, ",sekundy," sekund.")
+    menu()
+#26
+def zamien_kilogramy():
+    kg = int(input("Wprowadz liczbe kilogarmow\n"))
+    tona = kg/1000
+    dekagramy = kg*100
+    gramy = kg*1000
+    miligramy = gramy*1000
+    print(kg," kg, to",tona," tony, ",dekagramy," dekagramow, ", gramy," gramow, ",miligramy," miligramow.")
+    menu()
+#27
+def zamien_metry():
+    m = int(input("Wprowadz liczbe metrow\n"))
+    km = m*1000
+    cm = m*100
+    mm = cm*10
+    print(m," metrow, to",km," kilometra, ",cm," centymetrow, ",mm," milimetrow.")
+    menu()
+#28
+def policz_znaki():
+    tekst = input("Wprowadz swoj tekst\n")
+    dlugosc = len(tekst)
+    print("Twoj tekst, ma ",dlugosc," znakow.")
+    menu()
+#29
+def oblicz_bmi():
+    wysokosc = float(input("Ile mierzysz wzrostu? (w metrach)\n"))
+    waga = float(input("Jaka jest twoja waga? (w kilogramach)\n"))
 
-
-
+    bmi = waga / (wysokosc ** 2)
+    print(bmi)
+    if bmi < 15:
+        print("bardzo duza niedowaga")
+    elif bmi < 16:
+        print("duza niedowaga")
+    elif bmi < 18.5:
+        print("niedowaga")
+    elif bmi < 25:
+        print("Normalne, dobre, zdrowe BMI")
+    elif bmi < 30:
+        print("Nadwaga")
+    elif bmi < 35:
+        print("Otylosc klasa I")
+    elif bmi < 40:
+        print("Otylosc klasa II")
+    else:
+        print("Otylosc klasa III")
+    menu()
+#30
+#def 
 
 
 def menu():
+    input("Wcisnij Enter aby przejsc dalej")
     print('''
-        1Lista dostępnych programow:
+        Lista dostępnych programow:
         1.dodawanie
         2.odejmowanie
         3.mnozenie
@@ -343,11 +336,28 @@ def menu():
         7.potegowanie
         8.kalendarz
         9.zgadnij_liczbe
-        10.quiz_matematyczny
-        11.zgadnij_kolor
-        12.tuple_indexy
-        13.lista_zaproszonych
-        14.wyraz_w_pionie
+        10.quiz_matematyczny_dodawanie
+        11.quiz_matematyczny_odejmowanie
+        12.quiz_matematyczny_mnozenie
+        13.zgadnij_kolor
+        14.tuple_indexy
+        15.lista_zaproszonych
+        16.wyraz_w_pionie
+        17.znajdz_najwieksza_liczbe
+        18.tabliczka_mnozenia_wybranej_liczby
+        19.liczba_na_rozne_systemy_liczbowe
+        20.tworzenie_pliku_tekstowego
+        21.otworzenie_pliku_tekstowego
+        22.dopisywanie_do_pliku_tekstowego
+        23.usuwanie_pliku_tekstowego
+        24.pokaz_kod_ascii
+        25.zamien_dni
+        26.zamien_kilogramy
+        27.zamien_metry
+        28.policz_znaki
+        29.oblicz_bmi
+        30.
+
 
     ''')
 
@@ -375,21 +385,46 @@ def menu():
         case "9":	
             zgadnij_liczbe()
         case "10":	
-            quiz_matematyczny()
+            quiz_matematyczny_dodawanie()
         case "11":	
-            zgadnij_kolor()
+            quiz_matematyczny_odejmowanie()
         case "12":	
-            tuple_indexy()
+            quiz_matematyczny_mnozenie()
         case "13":	
-            lista_zaproszonych()
+            zgadnij_kolor()
         case "14":	
-            wyraz_w_pionie()
+            tuple_indexy()
         case "15":	
-            znajdz_najwieksza_liczbe()
+            lista_zaproszonych()
         case "16":	
-            tabliczka_mnozenia_wybranej_liczby()
+            wyraz_w_pionie()
         case "17":	
+            znajdz_najwieksza_liczbe()
+        case "18":	
+            tabliczka_mnozenia_wybranej_liczby()
+        case "19":	
             liczba_na_rozne_systemy_liczbowe()
+        case "20":	
+            tworzenie_pliku_tekstowego()
+        case "21":	
+            otworzenie_pliku_tekstowego()
+        case "22":	
+            dopisywanie_do_pliku_tekstowego()
+        case "23":	
+            usuwanie_pliku_tekstowego()
+        case "24":	
+            pokaz_kod_ascii()
+        case "25":	
+            zamien_dni()
+        case "26":	
+            zamien_kilogramy()
+        case "27":	
+            zamien_metry()
+        case "28":	
+            policz_znaki()
+        case "29":	
+            oblicz_bmi()
+       # case "30":	
 
         case _:
             print("Proszę wpisz dobry numer.")
