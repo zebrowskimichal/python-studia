@@ -5,6 +5,7 @@ from array import*
 import os
 import string
 
+#Program defining section
 #1
 def dodawanie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
@@ -54,7 +55,7 @@ def kalendarz():
     print('  Python Calendar\n ')
     print(calendar.month(yy,mm))
     menu()
- #9
+#9
 def zgadnij_liczbe():
     print("Podaj liczbe")
     liczba = int(input())
@@ -320,9 +321,50 @@ def oblicz_bmi():
         print("Otylosc klasa III")
     menu()
 #30
-#def 
+lista = []
+def lista_do_zrobienia():
+    print('''
+    1.Dodawanie rekordu
+    2.Wyswietlanie rekordu
+    3.Usuwanie rekordu
+    4.Usuwanie wszystkich rekordow
+    5.Powrot do menu
+    ''')
+    pytanie = int(input("Wybierz jedna z opcji?\n"))
+    if(pytanie==1):
+        rekord = input("Co chcesz dodac?\n")
+        lista.append(rekord)
+        input("Wcisnij Enter aby przejsc dalej")
+        lista_do_zrobienia()
+    elif(pytanie==2):
+        print(lista)
+        input("Wcisnij Enter aby przejsc dalej")
+        lista_do_zrobienia()
+    elif(pytanie==3):
+        print(lista)
+        rekord = int(input("Ktory rekord chcesz usunac?\n"))
+        print("Usuwam rekord ",lista[rekord])
+        lista.pop(rekord)
+        input("Wcisnij Enter aby przejsc dalej")
+        lista_do_zrobienia()
+    elif(pytanie==4):
+        rekord = input("Czy jestes pewien?(t/n)\n")
+        if(rekord=="t"):
+            print("Usunieto wszystkie rekordy z listy")
+            lista.clear()
+            input("Wcisnij Enter aby przejsc dalej")
+            lista_do_zrobienia()
+        else:
+            print("Dokonano zlego wyboru, nic nie zrobilem")
+            input("Wcisnij Enter aby przejsc dalej")
+            lista_do_zrobienia()
+    elif(pytanie==5):
+        menu()
+    else:
+        print("Nie wybrano zadnegj dostepnej opcji\n")
+        input("Wcisnij Enter aby przejsc dalej")
 
-
+#Defining menu-main program
 def menu():
     input("Wcisnij Enter aby przejsc dalej")
     print('''
@@ -356,16 +398,12 @@ def menu():
         27.zamien_metry
         28.policz_znaki
         29.oblicz_bmi
-        30.
-
-
+        30.lista_do_zrobienia
+        31.Wyjście-zakonczenie-dzialania-programu
     ''')
 
-
-
-    lang = input("Wbyierz program z powyzszych \n")
-
-    match lang:
+    wybor = input("Wbyierz program z powyzszych \n")
+    match wybor:
         case "1":
             dodawanie()
         case "2":
@@ -424,8 +462,10 @@ def menu():
             policz_znaki()
         case "29":	
             oblicz_bmi()
-       # case "30":	
-
+        case "30":	
+            lista_do_zrobienia()
+        case "31":
+            quit()
         case _:
             print("Proszę wpisz dobry numer.")
             menu()
