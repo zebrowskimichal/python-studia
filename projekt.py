@@ -5,7 +5,7 @@ from array import*
 import os
 import string
 
-#Program defining section
+#Programs defining section
 #1
 def dodawanie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
@@ -28,7 +28,7 @@ def mnozenie():
 def dzielenie_całkowite_bez_reszty():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
-    print("Wynik dzielenia, to ",liczba1 / liczba2)
+    print("Wynik dzielenia calkowitego (bez reszty), to ",int(liczba1 / liczba2))
     menu()
 #5
 def modulo_reszta_z_dzielenia():
@@ -40,20 +40,20 @@ def modulo_reszta_z_dzielenia():
 def dzielenie_z_reszta():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj druga liczbe.\n"))
-    print("Wynik dzielenia, to ",liczba1 / liczba2, "z resztą, równą: ",liczba1 % liczba2)
+    print("Wynik dzielenia, to ",int(liczba1 / liczba2), "z resztą, równą: ",liczba1 % liczba2)
     menu()
 #7
 def potegowanie():
     liczba1 = int(input("Podaj pierwsza liczbe.\n"))
     liczba2 = int(input("Podaj potęgę.\n"))
-    print("Wynik potęgowania twojej liczby, to ",liczba1 ^ liczba2)
+    print("Wynik potęgowania twojej liczby, to ",liczba1 ** liczba2)
     menu()
 #8
 def kalendarz():
-    yy = int(input("Podaj rok"))
-    mm = int(input("Podaj miesiac"))
+    rok = int(input("Podaj rok"))
+    miesiac = int(input("Podaj miesiac"))
     print('  Python Calendar\n ')
-    print(calendar.month(yy,mm))
+    print(calendar.month(rok,miesiac))
     menu()
 #9
 def zgadnij_liczbe():
@@ -126,29 +126,29 @@ def quiz_matematyczny_mnozenie():
 #13
 def zgadnij_kolor():
     
-    print("My colors: red, blue, cyan, pink, green")
-    print("Please pick one from these color, we will see if you'll get the same choice as me!")
-    color = random.choice(["red", "blue", "cyan", "pink", "green"])
+    print("Moje kolory: czerwony, niebieski, cyanowy, rozowy, zielony")
+    print("Prosze wybierz jeden z kolorow, zobaczymy czy wybierzesz ten sam kolor, ktory wybralem ja")
+    color = random.choice(["czerwony", "niebieski", "cyanowy", "rozowy", "zielony"])
     choose = input()
     while(choose != color):
-        print("Bad colour")
-        if(color == "red"):
-            print("You are quite RED right now?")
+        print("Zly kolor")
+        if(color == "czerwony"):
+            print("Jestes teraz dosyc CZERWONY ?")
             choose = input()
-        elif (color == "blue"):
-            print("You are quite BLUE right now?")
+        elif (color == "niebieski"):
+            print("Jestes teraz dosyc NIEBIESKI ?")
             choose = input()
-        elif (color == "cyan"):
-            print("You are quite CYAN right now?")
+        elif (color == "cyanowy"):
+            print("Jestes teraz dosyc CYANOWY ?")
             choose = input()
-        elif (color == "pink"):
-            print("You are quite PINK right now?")
+        elif (color == "rozowy"):
+            print("Jestes teraz dosyc ROZOWY ?")
             choose = input()
-        elif (color == "green"):
-            print("You are quite GREEN right now?")
+        elif (color == "zielony"):
+            print("Jestes teraz dosyc ZIELONY ?")
             choose = input()
     if(choose == color):
-        print("Well done!")
+        print("Brawo, wybrales ten sam kolor co ja!")
     menu()
 #14
 def tuple_indexy():
@@ -214,7 +214,7 @@ def tabliczka_mnozenia_wybranej_liczby():
 #19
 def liczba_na_rozne_systemy_liczbowe():
 
-    liczba = input("Wpisz liczbę.")
+    liczba = int(input("Wpisz liczbę."))
 
     print("Liczba ", liczba, " to inaczej:")
     print(bin(liczba), "w systemie dwojkowym.")
